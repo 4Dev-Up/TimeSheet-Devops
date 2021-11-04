@@ -129,15 +129,7 @@
 			
 		</plugins>
 	</build>
-<build>
-		<outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+
 	<distributionManagement>
     <repository>
       <id>nexus</id>
