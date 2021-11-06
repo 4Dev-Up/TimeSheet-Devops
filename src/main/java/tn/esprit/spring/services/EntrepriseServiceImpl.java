@@ -13,7 +13,7 @@ import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
 
 @Service
-public class EntrepriseServiceImpl implements IEntrepriseService {
+public class EntrepriseServiceImpl implements IEntrepriseService  {
 
 	@Autowired
     EntrepriseRepository entrepriseRepoistory;

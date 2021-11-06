@@ -3,6 +3,8 @@ package tn.esprit.spring.controller;
 
 
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +25,7 @@ import tn.esprit.spring.services.ITimesheetService;
 @RestController
 public class RestControlEntreprise {
 
-	
+	private static final Logger logger = LogManager.getLogger(RestControlEntreprise.class);
 	@Autowired
 	IEmployeService iemployeservice;
 	@Autowired
@@ -37,6 +39,9 @@ public class RestControlEntreprise {
 	@PostMapping("/ajouterEntreprise")
 	@ResponseBody
 	public int ajouterEntreprise(@RequestBody Entreprise entreprise) {
+		if (logger.isDebugEnabled()) {
+            logger.debug("Hello from Log4j 2 - num : {}");
+        }
 		ientrepriseservice.ajouterEntreprise(entreprise);
 		return entreprise.getId();
 	}
@@ -59,7 +64,8 @@ public class RestControlEntreprise {
     @GetMapping(value = "getEntrepriseById/{identreprise}")
     @ResponseBody
 	public Entreprise getEntrepriseById(@PathVariable("identreprise") int entrepriseId) {
-
+    	
+            logger.debug("Debuging in get Entreprise");
 		return ientrepriseservice.getEntrepriseById(entrepriseId);
 	}
     
@@ -69,6 +75,7 @@ public class RestControlEntreprise {
  	@PostMapping("/ajouterDepartement")
  	@ResponseBody
 	public int ajouterDepartement(@RequestBody Departement dep) {
+ 		logger.info("Department ajoutée");
 		return ientrepriseservice.ajouterDepartement(dep);
 	}
 	
@@ -76,13 +83,15 @@ public class RestControlEntreprise {
     @GetMapping(value = "getAllDepartementsNamesByEntreprise/{identreprise}")
     @ResponseBody
 	public List<String> getAllDepartementsNamesByEntreprise(@PathVariable("identreprise") int entrepriseId) {
-		return ientrepriseservice.getAllDepartementsNamesByEntreprise(entrepriseId);
+    	logger.info("Department List");
+    	return ientrepriseservice.getAllDepartementsNamesByEntreprise(entrepriseId);
 	}
 
     // URL : http://localhost:8081/SpringMVC/servlet/deleteDepartementById/3
     @DeleteMapping("/deleteDepartementById/{iddept}") 
 	@ResponseBody 
 	public void deleteDepartementById(@PathVariable("iddept") int depId) {
+    	logger.warn("Department deleted");
 		ientrepriseservice.deleteDepartementById(depId);
 
 	}
