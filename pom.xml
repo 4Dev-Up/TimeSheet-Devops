@@ -120,9 +120,7 @@
    		     <testFailureIgnore>true</testFailureIgnore>
    		 </configuration>
 			</plugin>
-			<plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-        </plugin>
+			
 			
 		</plugins>
 	</build>
