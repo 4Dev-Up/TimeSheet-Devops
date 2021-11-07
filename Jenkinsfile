@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    docker.withRegistry('https://registry.hub.docker.com','dockerHub'){
+            		def customImage = docker.build("mehdi/timesheet")
+            		customImage.push()
+            	}
     stages{
         stage('clone and clean repo'){
             steps {
@@ -18,14 +22,6 @@ pipeline {
                 bat "mvn deploy -f TimeSheet-Devops"
                 bat "mvn sonar:sonar -f TimeSheet-Devops"
                 //build image on docker
-            }
-        }
-        stage('Docker'){
-            steps{ 
-            	docker.withRegistry('https://registry.hub.docker.com','dockerHub'){
-            		def customImage = docker.build("mehdi/timesheet")
-            		customImage.push()
-            	}
             }
         }
         //send email
