@@ -34,7 +34,7 @@ public class RestControlEmploye {
 
 	
 	// http://localhost:8081/SpringMVC/servlet/ajouterEmployer
-	//{"id":1,"nom":"haddar", "prenom":"malek", "email":"malek@gmail.com", "isActif":true, "role":"INGENIEUR"}
+	//{"id":1,"nom":"haddar", "prenom":"malek", "email":"malek@gmail.com", "isActif":true, "role":"ADMINISTRATEUR"}
 	
 	@PostMapping("/ajouterEmployer")
 	@ResponseBody
