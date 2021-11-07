@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages{
-        stage('clone and clean repo'){
+        stage('clone and clean repo.'){
             steps {
             	bat "cd .."
             	bat "rmdir /S /q TimeSheet-Devops"
