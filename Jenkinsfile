@@ -38,25 +38,5 @@ pipeline {
 				bat 'docker build -t mahdi0606/timesheet:latest .'
 			}
 		}
-
-		stage('Login to DockerHub') {
-
-			steps {
-				bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
-
-		stage('Push Image to DockerHub') {
-
-			steps {
-				bat 'docker push mahdi0606/timesheet:latest'
-			}
-		}
 	}
-
-	post {
-		always {
-			bat 'docker logout'
-		}
-    }
 }
