@@ -20,6 +20,14 @@ pipeline {
                 //build image on docker
             }
         }
+        stage('Docker'){
+            steps{ 
+            	docker.withRegistry('https://registry.hub.docker.com','dockerHub'){
+            		def customImage = docker.build("mehdi/timesheet")
+            		customImage.push()
+            	}
+            }
+        }
         //send email
         stage('Email'){
             steps{
