@@ -1,13 +1,10 @@
 pipeline {
     agent any
- environment {
-		DOCKERHUB_CREDENTIALS=credentials('DockerHub')
-	}
     stages{
         stage('clone and clean repo'){
             steps {
-            	bat "cd .."
-            	bat "rmdir /S /q TimeSheet-Devops"
+            	///bat "cd .."
+            	///bat "rmdir /S /q TimeSheet-Devops"
                 bat "git clone -b Contrat https://github.com/4Dev-Up/TimeSheet-Devops"
                 bat "mvn clean install -U -f TimeSheet-Devops"
             }
@@ -27,7 +24,7 @@ pipeline {
         stage('Email'){
             steps{
                 //extended email
-                emailext body: 'New Commit! Deployed to Sonar Check it.', subject: 'Hey mahdi !', to: 'mehdi.hrairi@esprit.tn'
+                emailext body: 'New Commit! Deployed to Sonar Check it.', subject: 'Hey yessine !', to: 'yessine.benjemaa@esprit.tn'
             }
         }
         //build image on docker
