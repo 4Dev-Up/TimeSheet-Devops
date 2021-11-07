@@ -24,7 +24,7 @@ pipeline {
         stage('Email'){
             steps{
                 //extended email
-                emailext body: 'New Commit! Deployed to Sonar Check it.', subject: 'Hey malek !', to: 'malek.haddar1@esprit.tn'
+                emailext body: 'New Commit! Deployed to Sonar Check it.', subject: 'Hey Don !', to: 'malek.haddar1@esprit.tn'
             }
         }
         //build image on docker
