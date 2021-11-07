@@ -5,7 +5,7 @@ pipeline {
             steps {
             	bat "cd .."
             	bat "rmdir /S /q TimeSheet-Devops"
-                bat "git clone -b Employe https://github.com/4Dev-Up/TimeSheet-Devops"
+                bat "git clone -b employe https://github.com/4Dev-Up/TimeSheet-Devops"
                 bat "mvn clean install -U -f TimeSheet-Devops"
             }
         }
