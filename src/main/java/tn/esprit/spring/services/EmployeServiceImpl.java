@@ -62,7 +62,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	@Transactional
 	public void affecterEmployeADepartement(int employeId, int depId) {
-		l.info("lancer la methode affecter employe à un departement");
+		l.info("lancer la methode affecter employe à departement");
 		l.debug("je vais affecter employe à un departement");
 		Optional<Departement> value = deptRepoistory.findById(depId);
 		if(value.isPresent())
