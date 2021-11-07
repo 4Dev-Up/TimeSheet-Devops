@@ -24,14 +24,14 @@ pipeline {
         stage('Email'){
             steps{
                 //extended email
-                emailext body: 'New Commit! Deployed to Sonar Check it.', subject: 'Hey mahdi !', to: 'mehdi.hrairi@esprit.tn'
+                emailext body: 'New Commit! Deployed to Sonar Check it.', subject: 'Hey malek !', to: 'malek.haddar1@esprit.tn'
             }
         }
         //build image on docker
         stage('Build Docker Image') {
 
 			steps {
-				bat 'docker build -t mahdi0606/timesheet:latest .'
+				bat 'docker build -t Malek-Haddar/timesheet:latest .'
 			}
 		}
 	}
