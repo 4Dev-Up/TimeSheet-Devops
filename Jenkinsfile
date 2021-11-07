@@ -1,9 +1,13 @@
-pipeline {
-    agent any
-    docker.withRegistry('https://registry.hub.docker.com','dockerHub'){
+node{
+docker.withRegistry('https://registry.hub.docker.com','dockerHub'){
             		def customImage = docker.build("mehdi/timesheet")
             		customImage.push()
             	}
+}
+
+pipeline {
+    agent any
+ 
     stages{
         stage('clone and clean repo'){
             steps {
