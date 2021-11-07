@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('clone and clean repo'){
             steps {
-            	bat "rmdir /S /q "C:\ProgramData\Jenkins\.jenkins\workspace""
+            	bat "rmdir /S /q "C:/ProgramData/Jenkins/.jenkins/workspace""
                 bat "git clone -b Entreprise https://github.com/4Dev-Up/TimeSheet-Devops"
                 bat "mvn clean install -U -f TimeSheet-Devops"
             }
