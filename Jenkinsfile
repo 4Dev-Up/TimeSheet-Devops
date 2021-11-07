@@ -31,7 +31,7 @@ pipeline {
             }
         }
         //build image on docker
-        stage('Build') {
+        stage('Build Docker Image') {
 
 			steps {
 				
@@ -39,14 +39,14 @@ pipeline {
 			}
 		}
 
-		stage('Login') {
+		stage('Login to DockerHub') {
 
 			steps {
 				bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
 		}
 
-		stage('Push') {
+		stage('Push Image to DockerHub') {
 
 			steps {
 				bat 'docker push mahdi0606/timesheet:latest'
