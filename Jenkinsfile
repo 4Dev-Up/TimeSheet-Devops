@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('clone and clean repo'){
             steps {
-            	bat "rmdir /S /q Pipeline"
+            	bat "rmdir /S /q TimeSheet_Mehdi"
                 bat "git clone -b Entreprise https://github.com/4Dev-Up/TimeSheet-Devops"
                 bat "mvn clean install -U -f TimeSheet-Devops"
             }
