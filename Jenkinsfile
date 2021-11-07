@@ -34,7 +34,6 @@ pipeline {
         stage('Build Docker Image') {
 
 			steps {
-				
 				bat 'docker build -t mahdi0606/timesheet:latest .'
 			}
 		}
