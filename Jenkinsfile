@@ -1,13 +1,8 @@
-node{
-docker.withRegistry('https://registry.hub.docker.com','dockerHub'){
-            		def customImage = docker.build("mehdi/timesheet")
-            		customImage.push()
-            	}
-}
-
 pipeline {
     agent any
- 
+ environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerHub')
+	}
     stages{
         stage('clone and clean repo'){
             steps {
@@ -36,5 +31,31 @@ pipeline {
             }
         }
         //build image on docker
+        stage('Build') {
+
+			steps {
+				bat 'docker build -t mahdi0606/timesheet:latest .'
+			}
+		}
+
+		stage('Login') {
+
+			steps {
+				bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+		stage('Push') {
+
+			steps {
+				bat 'docker push mahdi0606/timesheet:latest'
+			}
+		}
+	}
+
+	post {
+		always {
+			sh 'docker logout'
+		}
     }
 }
