@@ -37,7 +37,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public int ajouterEmploye(Employe employe) {
 		l.info("lancer la methode ajouter d'un employe ");
-		l.debug("je vais lancer save de employe");
+		l.debug("je vais lancer save de cette employe");
 		employeRepository.save(employe);
 		l.debug("je viens de finir save de l'employe");
 		l.info("fin de  la methode ajouter employe");
