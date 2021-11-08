@@ -36,7 +36,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	private static final Logger l = Logger.getLogger(EntrepriseServiceImpl.class);	
 
 	public int ajouterEmploye(Employe employe) {
-		l.info("lancer la methode ajouter d'un employe ");
+		l.info("lancer la methode ajouter cette employe ");
 		l.debug("je vais lancer save de cette employe");
 		employeRepository.save(employe);
 		l.debug("je viens de finir save de l'employe");
