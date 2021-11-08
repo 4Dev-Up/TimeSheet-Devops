@@ -53,7 +53,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		
 		Timesheet timesheet = new Timesheet();
 		timesheet.setTimesheetPK(timesheetPK);
-		timesheet.setValide(false); //par defaut non valide
+		timesheet.setValide(false);
 		timesheetRepository.save(timesheet);
 		
 	}
@@ -63,12 +63,10 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		System.out.println("In valider Timesheet");
 		Employe validateur = employeRepository.findById(validateurId).get();
 		Mission mission = missionRepository.findById(missionId).get();
-		//verifier s'il est un chef de departement (interet des enum)
 		if(!validateur.getRole().equals(Role.CHEF_DEPARTEMENT)){
 			System.out.println("l'employe doit etre chef de departement pour valider une feuille de temps !");
 			return;
 		}
-		//verifier s'il est le chef de departement de la mission en question
 		boolean chefDeLaMission = false;
 		for(Departement dep : validateur.getDepartements()){
 			if(dep.getId() == mission.getDepartement().getId()){
@@ -85,7 +83,6 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		Timesheet timesheet =timesheetRepository.findBytimesheetPK(timesheetPK);
 		timesheet.setValide(true);
 		
-		//Comment Lire une date de la base de données
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("dateDebut : " + dateFormat.format(timesheet.getTimesheetPK().getDateDebut()));
 		

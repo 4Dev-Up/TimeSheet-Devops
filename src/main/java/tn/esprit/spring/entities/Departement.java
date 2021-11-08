@@ -25,7 +25,6 @@ public class Departement implements Serializable {
 	
 	private String name;
 	
-	//@JsonManagedReference 
 	@JsonIgnore
 	@ManyToMany
 	private List<Employe> employes;
