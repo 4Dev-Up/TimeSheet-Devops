@@ -14,8 +14,8 @@ pipeline {
         }
         stage('Deploy'){
             steps {
-                bat "mvn package -f TimeSheet-Devops"
-                bat "mvn deploy -f TimeSheet-Devops"
+                ///bat "mvn package -f TimeSheet-Devops"
+                ///bat "mvn deploy -f TimeSheet-Devops"
                 bat "mvn sonar:sonar -f TimeSheet-Devops"
                 //build image on docker
             }
