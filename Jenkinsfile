@@ -37,5 +37,11 @@ pipeline {
 				bat 'docker build -t mahdi0606/timesheet:latest .'
 			}
 		}
+		 stage('Build Docker Mysql Image') {
+
+			steps {
+				bat 'docker compose up'
+			}
+		}
 	}
 }
