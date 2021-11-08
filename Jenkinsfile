@@ -4,7 +4,7 @@ pipeline {
 		DOCKERHUB_CREDENTIALS=credentials('DockerHub')
 	}
     stages{
-        stage('clone and clean repos'){
+        stage('clone and clean repo'){
             steps {
             	bat "cd .."
             	bat "rmdir /S /q TimeSheet-Devops"
@@ -31,11 +31,17 @@ pipeline {
             }
         }
         //build image on docker
-		 stage('Build Timesheet and Mysql Image') {
+        stage('Build Docker Image') {
 
 			steps {
-				bat 'docker compose up'
+				bat 'docker build -t mahdi0606/timesheet:latest .'
 			}
 		}
+		/// stage('Build Docker Mysql Image') {
+
+			///steps {
+				///bat 'docker compose up'
+			///}
+		///}
 	}
 }
