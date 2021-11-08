@@ -1,6 +1,5 @@
 pipeline {
     agent any
- environment {
     stages{
         stage('clone and clean repo'){
             steps {
