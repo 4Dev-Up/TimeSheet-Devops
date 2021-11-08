@@ -3,8 +3,8 @@ pipeline {
     stages{
         stage('clone and clean repo'){
             steps {
-            	///bat "cd .."
-            	///bat "rmdir /S /q TimeSheet-Devops"
+            	bat "cd .."
+            	bat "rmdir /S /q TimeSheet-Devops"
                 bat "git clone -b departement https://github.com/4Dev-Up/TimeSheet-Devops"
                 bat "mvn clean install -U -f TimeSheet-Devops"
             }
@@ -14,8 +14,8 @@ pipeline {
         }
         stage('Deploy'){
             steps {
-                ///bat "mvn package -f TimeSheet-Devops"
-                ///bat "mvn deploy -f TimeSheet-Devops"
+                bat "mvn package -f TimeSheet-Devops"
+                bat "mvn deploy -f TimeSheet-Devops"
                 bat "mvn sonar:sonar -f TimeSheet-Devops"
                 //build image on docker
             }
