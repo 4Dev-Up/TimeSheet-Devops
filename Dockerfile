@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8080
-ADD TimeSheet-Devops/target/timesheet-1.0.jar timesheet-1.0.jar
+COPY target/timesheet-1.0.jar timesheet-1.0.jar
 ENTRYPOINT ["java","-jar","/timesheet-1.0.jar"]
