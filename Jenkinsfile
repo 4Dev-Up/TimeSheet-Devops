@@ -4,7 +4,7 @@ pipeline {
 		DOCKERHUB_CREDENTIALS=credentials('DockerHub')
 	}
     stages{
-        stage('clone and clean repo'){
+        stage('clone and clean repos'){
             steps {
             	bat "cd .."
             	bat "rmdir /S /q TimeSheet-Devops"
